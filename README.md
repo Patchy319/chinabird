@@ -1,4 +1,4 @@
-<img src="screencap.png" align="right" width="250">
+<img src="https://i.imgur.com/r1GNiAa.png" align="right" width="250">
 
 # [play floppy bird](https://nebezb.com/floppybird/)
 
