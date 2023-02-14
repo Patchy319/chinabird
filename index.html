@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Floppy Bird</title>
+      <title>China Balloon</title>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Nebez Briefkani" />
+      <meta name="author" content="Patchy319" />
       <meta name="description" content="play floppy bird. a remake of popular game flappy bird built in html/css/js" />
-      <meta name="keywords" content="flappybird,flappy,bird,floppybird,floppy,html,html5,css,css3,js,javascript,jquery,github,nebez,briefkani,nebezb,open,source,opensource" />
+      <meta name="keywords" content="flappybird,flappy,bird,floppybird,floppy,html,html5,css,css3,js,javascript,jquery,github,nebez,briefkani,nebezb,open,source,opensource,china,balloon" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
       <!-- Open Graph tags -->
-      <meta property="og:title" content="Floppy Bird" />
+      <meta property="og:title" content="China Balloon" />
       <meta property="og:description" content="play floppy bird. a remake of popular game flappy bird built in html/css/js" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://nebezb.com/floppybird/assets/thumb.png" />
-      <meta property="og:url" content="https://nebezb.com/floppybird/" />
+      <meta property="og:image" content="assets/thumb.png" />
+      <meta property="og:url" content="https://chinaballoon.org/"/>
       <meta property="og:site_name" content="Floppy Bird" />
 
       <!-- Style sheets -->
@@ -47,9 +47,10 @@
          </div>
       </div>
       <div id="footer">
-         <a href="https://www.dotgears.com/">original game/concept/art by dong nguyen</a>
-         <a href="https://nebezb.com/">recreated by nebez briefkani</a>
-         <a href="https://github.com/nebez/floppybird/">view github project</a>
+         <a href="https://www.youtube.com/watch?v=8UKp3wjxaa4">Music by mosquitowo</a>
+         <a href="#">recreated by nebez briefkani. forked by patchy319</a>
+         <a href="https://github.com/Patchy319/chinabird">view github project</a>
+         <a id="interest" href="mailto:webmaster@awoome.com">Interested in purchasing chinaballoon.org?</a>
       </div>
       <div class="boundingbox" id="playerbox"></div>
       <div class="boundingbox" id="pipebox"></div>
@@ -58,7 +59,29 @@
       <script src="js/jquery.transit.min.js"></script>
       <script src="js/buzz.min.js"></script>
       <script src="js/main.js"></script>
-
+      <script>
+            const scheme = document.querySelector("#interest");
+            const rainbow = [
+               "#9400D3",
+               "#4B0082",
+               "#0000FF",
+               //"#00FF00",
+               //"#FFFF00",
+               "#000000",
+               //"#FF7F00",
+               "#FF0000",
+            ];
+            var currentColor = 0;
+            setInterval(() => {
+               scheme.style.color = `${rainbow[currentColor]}`;
+               scheme.style.borderColor = `${rainbow[currentColor]}`;
+               currentColor++; 
+               if (currentColor == rainbow.length-1) {
+               currentColor = 0;
+               }
+            }, 800);
+      </script>
+<!--
       <script>
       function inIframe() {
           try {
@@ -72,7 +95,9 @@
          ga('create', 'UA-48047334-1', 'auto');
          ga('send', 'pageview');
       }
+      
       </script>
       <script async src='https://www.google-analytics.com/analytics.js'></script>
+   -->
    </body>
 </html>

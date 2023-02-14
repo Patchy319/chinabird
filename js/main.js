@@ -18,7 +18,7 @@ var flyArea = $("#flyarea").height();
 var score = 0;
 var highscore = 0;
 
-var pipeheight = 90;
+var pipeheight = 175;
 var pipewidth = 52;
 var pipes = new Array();
 
@@ -29,8 +29,9 @@ var volume = 30;
 var soundJump = new buzz.sound("assets/sounds/sfx_wing.ogg");
 var soundScore = new buzz.sound("assets/sounds/sfx_point.ogg");
 var soundHit = new buzz.sound("assets/sounds/sfx_hit.ogg");
-var soundDie = new buzz.sound("assets/sounds/sfx_die.ogg");
+var soundDie = new buzz.sound("assets/sounds/fail-siren-1.mp3");
 var soundSwoosh = new buzz.sound("assets/sounds/sfx_swooshing.ogg");
+var music = new buzz.sound("assets/sounds/redsun-mario.mp3");
 buzz.all().setVolume(volume);
 
 //loops
@@ -88,6 +89,7 @@ function showSplash()
 
    soundSwoosh.stop();
    soundSwoosh.play();
+   music.stop();
 
    //clear out all the pipes if there are any
    $(".pipe").remove();
@@ -122,10 +124,11 @@ function startGame()
    //start up our loops
    var updaterate = 1000.0 / 60.0 ; //60 times a second
    loopGameloop = setInterval(gameloop, updaterate);
-   loopPipeloop = setInterval(updatePipes, 1400);
+   loopPipeloop = setInterval(updatePipes, 2000); //DISTANCE BETWEEN PIPES
 
    //jump from the start!
    playerJump();
+   music.play();
 }
 
 function updatePlayer(player)
@@ -149,8 +152,8 @@ function gameloop() {
 
    //create the bounding box
    var box = document.getElementById('player').getBoundingClientRect();
-   var origwidth = 34.0;
-   var origheight = 24.0;
+   var origwidth = 82.0; //def: 34.0 - 86 - 82
+   var origheight = 30.0; //def: 24.0 - 82 - 30
 
    var boxwidth = origwidth - (Math.sin(Math.abs(rotation) / 90) * 8);
    var boxheight = (origheight + box.height) / 2;
@@ -353,16 +356,21 @@ function playerDead()
    if(isIncompatible.any())
    {
       //skip right to showing score
+      soundDie.play();
       showScore();
    }
    else
    {
+      soundDie.play();
+      showScore();
       //play the hit sound (then the dead sound) and then show score
+      /*
       soundHit.play().bindOnce("ended", function() {
          soundDie.play().bindOnce("ended", function() {
             showScore();
          });
       });
+      */
    }
 }
 
@@ -391,6 +399,7 @@ function showScore()
    //SWOOSH!
    soundSwoosh.stop();
    soundSwoosh.play();
+   music.stop();
 
    //show the scoreboard
    $("#scoreboard").css({ y: '40px', opacity: 0 }); //move it down so we can slide it up
