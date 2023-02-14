@@ -1,6 +1,6 @@
 <img src="https://i.imgur.com/r1GNiAa.png" align="right" width="250">
 
-# [play floppy bird](https://chinaballoon.org/)
+# [play china bird](https://chinaballoon.org/)
 
 If you missed the Flappy Bird hype, here's your chance to try the chinese version. Inspired by China's scientific balloon.
 
