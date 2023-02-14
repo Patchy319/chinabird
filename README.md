@@ -16,3 +16,5 @@ This is a fork of https://github.com/nebez/floppybird
 Enjoy.
 
 https://chinaballoon.org/ (or play [**easy mode**](https://chinaballoon.org/?easy))
+
+BACKUP (Github Pages): https://patchy319.github.io/chinabird/
