@@ -65,10 +65,10 @@
          </div>
       </div>
       <div id="footer">
-         <a href="#">China Balloon Game</a>
-         <a href="https://www.youtube.com/watch?v=8UKp3wjxaa4">Music by mosquitowo</a>
-         <a href="https://github.com/Patchy319/chinabird">recreated by nebez briefkani. forked by patchy319</a>
-         <a id="interest" href="mailto:webmaster@awoome.com">Interested in purchasing chinaballoon.org?</a>
+         <a>China Balloon Game</a>
+         <a f_href="https://www.youtube.com/watch?v=8UKp3wjxaa4">Music by mosquitowo</a>
+         <a f_href="https://github.com/Patchy319/chinabird">recreated by nebez briefkani. forked by patchy319</a>
+         <a id="interest" f_href="mailto:webmaster@awoome.com">Interested in purchasing chinaballoon.org? Click me!</a>
       </div>
       <div class="boundingbox" id="playerbox"></div>
       <div class="boundingbox" id="pipebox"></div>
@@ -77,6 +77,19 @@
       <script src="js/jquery.transit.min.js"></script>
       <script src="js/buzz.min.js"></script>
       <script src="js/main.js"></script>
+      <script>
+         if (isIncompatible.any()) //detect mobile, dont show clickyness at footer because google is picky
+         {
+            $("#interest").html("Email webmaster@awoome.com to purchase!")
+         }
+         else
+         {
+            $("[f_href]").each(function() {
+               // `this` is the div
+               this.href = this.f_href;
+            });
+         }
+      </script>
       <script>
             const scheme = document.querySelector("#interest");
             const rainbow = [
